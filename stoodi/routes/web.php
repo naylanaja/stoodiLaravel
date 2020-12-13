@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//page
 Route::get('/', [PagesController::class, 'home']);
 Route::get('/aboutus', [PagesController::class, 'aboutus']);
+
+//classroom
+Route::get('/classroom', [ClassroomController::class, 'index']);
