@@ -15,4 +15,12 @@ class PagesController extends Controller
     {
         return view('aboutus');
     }
+    public function login()
+    {
+        return view('login');
+    }
+    public function regis()
+    {
+        return view('regis');
+    }
 }

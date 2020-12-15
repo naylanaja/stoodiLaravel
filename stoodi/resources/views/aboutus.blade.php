@@ -28,7 +28,7 @@
                         <a class="nav-link" href="#" style="color: white">Berlangganan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary" href="#" role="button" style="font-size: 20px; border-radius: 40px">Login</a>
+                        <a class="btn btn-primary" href="{{ url('/login') }}" role="button" style="font-size: 20px; border-radius: 40px">Login</a>
                     </li>
                 </ul>
             </div>

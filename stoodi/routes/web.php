@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 //page
 Route::get('/', [PagesController::class, 'home']);
 Route::get('/aboutus', [PagesController::class, 'aboutus']);
+Route::get('/index', [PagesController::class, 'home']);
+Route::get('/regis', [PagesController::class, 'regis']);
+Route::get('/classroom/classroom', [ClassroomController::class, 'index']);
+
+Route::get('/login', [UserController::class, 'index']);
+Route::post('/login', [UserController::class, 'store']);
 
 //classroom
 Route::get('/classroom', [ClassroomController::class, 'index']);

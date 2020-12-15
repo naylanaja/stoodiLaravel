@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <title>Stoodi</title>
+    <title>Home</title>
 </head>
 <body background="{{ 'imagersc/landing_bg.png' }}" style="background-size:100%; background-repeat: no-repeat">
     <div class="container" style="margin-top: 20px; font-size: 20px">
@@ -28,7 +28,7 @@
                         <a class="nav-link" href="#" style="color: white">Berlangganan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary" href="{{ url('/classroom') }}" role="button" style="font-size: 20px; border-radius: 40px">Login</a>
+                        <a class="btn btn-primary" href="{{ url('/login') }}" role="button" style="font-size: 20px; border-radius: 40px">Login</a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
         <p>Stoodi adalah situs e-learning untuk siswa sekolah dapat mengembangkan ilmu pengetahuan dan kemampuan. Dalam Stoody terdapat materi dan soal lengkap sesuai 
             dengan kurikulim nasional yang berlaku. Berlangganan sekarang dan dapatkan akses penuh ke seluruh soal dan materi dalam Stoodi.</p><br>
         <p align="center">
-            <a class="btn btn-primary" href="#" role="button" style="font-size: 25px; border-radius: 50px; font-weight: 500; width: 250px;">Daftar Sekarang!</a>
+            <a class="btn btn-primary" href="{{ '/regis' }}" role="button" style="font-size: 25px; border-radius: 50px; font-weight: 500; width: 250px;">Daftar Sekarang!</a>
         </p>
     </div>
 
