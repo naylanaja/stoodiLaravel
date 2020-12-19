@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ClassroomController;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\DashController;
+use App\Http\Controllers\Teacher\TeacherController;
+use App\Http\Controllers\Student\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +17,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//page
-Route::get('/', [PagesController::class, 'home']);
-Route::get('/aboutus', [PagesController::class, 'aboutus']);
-Route::get('/index', [PagesController::class, 'home']);
-Route::get('/regis', [PagesController::class, 'regis']);
-Route::get('/classroom/classroom', [ClassroomController::class, 'index']);
 
-Route::get('/login', [UserController::class, 'index']);
-Route::post('/login', [UserController::class, 'store']);
+Route::get('/', function () {
+    return view('index');
+});
 
-//classroom
-Route::get('/classroom', [ClassroomController::class, 'index']);
+
+
+Auth::routes();
+Route::get('/admin/adminHome', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+
+Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'aboutus'])->name('aboutus');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
+
+Route::group(['as'=>'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware'=>['auth','admin']], function(){
+    Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('adminDash'); 
+    });
+Route::group(['as'=>'teacher.', 'prefix' => 'teacher', 'namespace' => 'Teacher', 'middleware'=>['auth','teacher']], function(){
+    Route::get('/teacher', [App\Http\Controllers\Teacher\TeacherController::class, 'index'])->name('teacherDash'); 
+    });
+Route::group(['as'=>'student.', 'prefix' => 'student', 'namespace' => 'student', 'middleware'=>['auth','student']], function(){
+    Route::get('/classroom', [App\Http\Controllers\Student\StudentController::class, 'index'])->name('classroom'); 
+    });

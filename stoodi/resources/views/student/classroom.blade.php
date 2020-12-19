@@ -3,7 +3,7 @@
 
 @section('body')
     <div style="position: relative">
-        <img src="imagersc/welcome.png" style="width: 100%; border-radius: 10px">
+        <img src="{{ '/imagersc/welcome.png' }}" style="width: 100%; border-radius: 10px">
         <h1 style="position: absolute; top: 25px; left: 30px; color: white">Welcome, user</h1>
         <h5 style="position: absolute; top: 90px; left: 30px; width: 60%; font-family: serif; font-style: oblique; color: white">"Pendidikan
             merupakan tiket untuk masa depan. Hari esok untuk orang-orang yang telah mempersiapkan dirinya hari ini."</h5>

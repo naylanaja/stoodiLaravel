@@ -14,16 +14,30 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00D2FC;">
         <div class="container">
-            <img src="imagersc/stoodi_logo.png" style="max-height: 45px;">
+            <img src="{{ '/imagersc/stoodi_logo.png' }}" style="max-height: 45px;">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="d-flex" style="margin-left: auto">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+        </div>
+
+        <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <a id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                 @csrf
+           </form>
+                                    </li>
+        </ul>
         </div>
     </nav>
 
@@ -34,11 +48,12 @@
                     <nav class="nav flex-column">
                         <br>
                         <p align="center">
-                            <img src="imagersc/profpict.png" style="max-width: 100px">
+                            <img src="{{ '/imagersc/profpict.png' }}" style="max-width: 100px">
                         </p>
                         <h6 align="center">Profile Name</h6>
                         <p align="center">Peminatan</p>
                         <br>
+
         
                         <h6 style="margin-left: 15px">Menu</h6>
                         <a class="nav-link" href="#">Profile</a>
@@ -46,6 +61,7 @@
                         <a class="nav-link" href="#">Ask</a>
                         <a class="nav-link" href="#">Amnouncement</a>
                         <a class="nav-link" href="#">Preferences</a>
+                        
                     </nav>
                 </div>
             </div>

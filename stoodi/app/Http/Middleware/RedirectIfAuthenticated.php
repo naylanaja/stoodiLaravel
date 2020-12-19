@@ -17,16 +17,20 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handle(Request $request, Closure $next, $guard = null)
     {
-        $guards = empty($guards) ? [null] : $guards;
-
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+        
+            if (Auth::guard($guard)->check() && Auth::user()->role_id ==1) {
+                return redirect()->route('admin.adminDash');
+            } else if (Auth::guard($guard)->check() && Auth::user()->role_id == 2){
+                return redirect()->route('teacher.teacherDash');
+            } else if (Auth::guard($guard)->check() && Auth::user()->role_id == 3){
+                return redirect()->route('student.classroom');
+            } else{
+                return $next($request);
             }
-        }
+            
+        
 
-        return $next($request);
     }
 }

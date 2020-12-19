@@ -42,7 +42,7 @@
         <p>Stoodi adalah situs e-learning untuk siswa sekolah dapat mengembangkan ilmu pengetahuan dan kemampuan. Dalam Stoody terdapat materi dan soal lengkap sesuai 
             dengan kurikulim nasional yang berlaku. Berlangganan sekarang dan dapatkan akses penuh ke seluruh soal dan materi dalam Stoodi.</p><br>
         <p align="center">
-            <a class="btn btn-primary" href="{{ '/regis' }}" role="button" style="font-size: 25px; border-radius: 50px; font-weight: 500; width: 250px;">Daftar Sekarang!</a>
+            <a class="btn btn-primary" href="{{ '/register' }}" role="button" style="font-size: 25px; border-radius: 50px; font-weight: 500; width: 250px;">Daftar Sekarang!</a>
         </p>
     </div>
 
