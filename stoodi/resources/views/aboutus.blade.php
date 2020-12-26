@@ -34,7 +34,13 @@
             </div>
         </div>
     </div>
-
+    <div class="container" style="margin-top: 30px; align-content: center">
+        <br>
+        <img src="{{ 'imagersc/aboutus-stoodi.png' }}" style="width: 100%;">
+        <br>
+    </div>
+    
+<br><br><br>
     <div class="container" style="margin-top: 30px; align-content: center">
         <h1 style="text-align: center; margin-bottom: 60px;">Team Kami</h1>
         <div class="row" align="center">

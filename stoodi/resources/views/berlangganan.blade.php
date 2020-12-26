@@ -45,41 +45,61 @@
         <div class="row row-cols-1 row-cols-md-2 g-4">
 
             <div class="col">
-              <div class="card">
+              <div class="card" style="border-radius: 5%;">
                 <img src="{{ 'imagersc/package-1.png' }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Try It Package</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h5 class="card-title" style="font-weight: bold">Try It Package</h5>
+                  <p class="card-text">
+                    coba dulu kamu pasti akan suka dengan metode kami, kamu akan belajar bersama kami dalam 1 semester ini kamu akan merasakan bagaimana para pengajar kami memberikan metode terbaik.
+                  </p>
+                  <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-info btn-block">Subscribe</button>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="col">
-              <div class="card">
+              <div class="card"  style="border-radius: 5%;">
                 <img src="{{ 'imagersc/package-2.png' }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Junior Package</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h5 class="card-title" style="font-weight: bold">Junior Package</h5>
+                  <p class="card-text">
+                  untuk kamu yang ingin siap dalam menghadapi kelas 10 dan 11 ini lah paket terbaik dari kami dengan bank soal yang update dan juga pengajar yang kompeten.  
+                  </p>
+                  <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-info btn-block">Subscribe</button>
+                  </div>
                 </div>
               </div>
             </div>
             
             <div class="col" style="margin-top: 20px">
-              <div class="card">
+              <div class="card" style="border-radius: 5%;">
                 <img src="{{ 'imagersc/package-3.png' }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Senior Package</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                  <h5 class="card-title" style="font-weight: bold">Senior Package</h5>
+                  <p class="card-text">
+                    mempersiapkan kelulusanmu di SMA dan mendapatkan nilai terbaik di kelas 12 dengan paket ini seluruh kebutuhanmu selama 1 tahun di SMA akan terpenuhi.
+                  </p>
+                  <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-info btn-block">Subscribe</button>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="col" style="margin-top: 20px">
-              <div class="card">
+              <div class="card" style="border-radius: 5%;">
                 <img src="{{ 'imagersc/package-4.png' }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Full Package</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h5 class="card-title" style="font-weight: bold">Full Package</h5>
+                  <p class="card-text">
+                    menemanimu dari awal sma hingga lulus, dengan paket ini kamu tidak hanya mendapatkan latihan di setiap kelas tapi juga mendapatkan latihan soal untuk masuk ke perguruan tinggi.
+                  </p>
+                  <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-info btn-block">Subscribe</button>
+                  </div>
                 </div>
               </div>
             </div>
