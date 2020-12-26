@@ -62,7 +62,9 @@
             </div>
         </div>
     </div>
-
+            <br>
+            <br>
+            <br>
     <div class="fixed-bottom" style="background-color: #00D2FC">
         <p style="text-align: center">©STOODI 2020</p>
     </div>
