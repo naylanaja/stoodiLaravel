@@ -28,7 +28,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo;
+    protected $redirectTo = '/home';
+    protected function redirectTo()
+    {
+        if (auth::check() && Auth::user()->role_id == 1) {
+            return '/admcourse';
+        }else if(auth::check() && Auth::user()->role_id == 2){
+            return '/tchclass';
+        }else if(auth::check() && Auth::user()->role_id == 3){
+            return '/classroom';
+        }
+        return '/';
+    }
+
 
     /**
      * Create a new controller instance.
@@ -37,13 +49,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        if(Auth::check() && Auth::user()->role_id == 1){
-            $this->redirectTo = route('admin.adminDash');
-        } else if(Auth::check() && Auth::user()->role_id == 2){
-            $this->redirectTo = route('teacher.teacherDash');
-        } else if(Auth::check() && Auth::user()->role_id == 3){
-            $this->redirectTo = route('student.classroom');
-        }
+        
 
         $this->middleware('guest')->except('logout');
     }

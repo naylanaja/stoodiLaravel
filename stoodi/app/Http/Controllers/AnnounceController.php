@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Assessment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Classroom;
-use App\Models\Course;
 
-class ClassroomsController extends Controller
+class AnnounceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +14,9 @@ class ClassroomsController extends Controller
      */
     public function index()
     {
-        $courses = Classroom::select('*')
-            ->where('kelas', '=', Auth::user()->kelas)
-            ->where('category', '=', Auth::user()->peminatan)
-            ->get();
-        return view ('student.classroom', ['courses' => $courses]);
+        //
+        $announce=DB::table('announcement')->get();
+        return view('announcement', ['announcement' => $announce]);
     }
 
     /**
@@ -34,6 +28,14 @@ class ClassroomsController extends Controller
     {
         //
     }
+    public function form()
+    {
+        //
+        $announce=DB::table('announcement')->get();
+        return view('admin.admaddannounce', ['announce'=> $announce]);
+    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -44,6 +46,15 @@ class ClassroomsController extends Controller
     public function store(Request $request)
     {
         //
+        DB::table('announcement')->insert([
+            'title' => $request->title,
+            'pengumuman' => $request->pengumuman,
+
+        ]);
+        return redirect('admin.admaddannounce');
+        
+        
+        
     }
 
     /**
@@ -54,17 +65,7 @@ class ClassroomsController extends Controller
      */
     public function show($id)
     {
-        $classroom = DB::table('classrooms')->where('id',$id)->get();
-        $course = DB::table('courses')
-            ->where('id_classroom',$id)
-            ->where('visible', '=', '1')
-            ->get();
-        $assessment = DB::table('assessments')->where('id_course',$id)->get();
-        $quizes = DB::table('quizes')->where('id_course',$id)->get();
-        $attemp = DB::table('quizattempgrade')->where('id_user',Auth::user()->id)->get();
-        $collection = DB::table('assessmentcollection')->where('id_user',Auth::user()->id)->get();
-        return view('student.course',['course' => $course, 'classroom' => $classroom, 'assessment' => $assessment, 'quizes' => $quizes,
-        'attemp' => $attemp, 'collection' => $collection]);
+        //
     }
 
     /**

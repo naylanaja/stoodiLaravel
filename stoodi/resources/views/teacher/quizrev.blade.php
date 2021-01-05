@@ -1,4 +1,4 @@
-@extends('layout.class')
+@extends('layout.teacher')
 @section('title', 'Quiz')
 
 @section('body')
@@ -52,10 +52,9 @@
     @endforeach
     <div class="row">
         <div class="col-sm-10">
-            <p style="margin-top: 20px; margin-left: 10px; font-weight: 500">Pastikan semua soal telah terisi!</p>
         </div>
         <div class="col-sm-2">
-            <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Pastikan semua telah terisi')" style="border-radius: 7px; margin-top: 20px">Submit all & Finish</button>
+            <a class="btn btn-outline-danger btn-sm" href="/tchcourse/{{$q->id_course}}" style="border-radius: 7px; margin-top: 20px">Back to course</a>
         </div>
     </div>
 </form>

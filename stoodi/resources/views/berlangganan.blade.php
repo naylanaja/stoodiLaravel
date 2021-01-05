@@ -1,155 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <title>Stoodi: Berlangganan</title>
-</head>
-<body background="{{ 'imagersc/about_us.png' }}" style="background-size:100%; background-repeat: no-repeat">
+  </head>
+
+  <body background=" {{ 'imagersc/background.png' }}" style="background-size:100%; background-repeat: no-repeat">
+
     <div class="container" style="margin-top: 20px; font-size: 20px">
-        <div class="row">
-            <div class="col">
-              <img src="imagersc/stoodi_logo.png" style="height: 60px">
-            </div>
-            <div class="col">
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}" style="color: white">Home</b></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/aboutus') }}" style="color: white">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/berlangganan') }}" style="color: white">Berlangganan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-primary" href="#" role="button" style="font-size: 20px; border-radius: 40px">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" style="margin-top: 30px; align-content: center">
-        
-        <!--poster 1-->
-            <img src="{{ 'imagersc/berlangganan-1.png' }}" style="width: 100%">     
-        <!--poster 1-->
-
-        <!--card package-->
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-
-            <div class="col">
-              <div class="card" style="border-radius: 5%;">
-                <img src="{{ 'imagersc/package-1.png' }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title" style="font-weight: bold">Try It Package</h5>
-                  <p class="card-text">
-                    coba dulu kamu pasti akan suka dengan metode kami, kamu akan belajar bersama kami dalam 1 semester ini kamu akan merasakan bagaimana para pengajar kami memberikan metode terbaik.
-                  </p>
-                  <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-info btn-block">Subscribe</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card"  style="border-radius: 5%;">
-                <img src="{{ 'imagersc/package-2.png' }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title" style="font-weight: bold">Junior Package</h5>
-                  <p class="card-text">
-                  untuk kamu yang ingin siap dalam menghadapi kelas 10 dan 11 ini lah paket terbaik dari kami dengan bank soal yang update dan juga pengajar yang kompeten.  
-                  </p>
-                  <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-info btn-block">Subscribe</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col" style="margin-top: 20px">
-              <div class="card" style="border-radius: 5%;">
-                <img src="{{ 'imagersc/package-3.png' }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title" style="font-weight: bold">Senior Package</h5>
-                  <p class="card-text">
-                    mempersiapkan kelulusanmu di SMA dan mendapatkan nilai terbaik di kelas 12 dengan paket ini seluruh kebutuhanmu selama 1 tahun di SMA akan terpenuhi.
-                  </p>
-                  <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-info btn-block">Subscribe</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col" style="margin-top: 20px">
-              <div class="card" style="border-radius: 5%;">
-                <img src="{{ 'imagersc/package-4.png' }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title" style="font-weight: bold">Full Package</h5>
-                  <p class="card-text">
-                    menemanimu dari awal sma hingga lulus, dengan paket ini kamu tidak hanya mendapatkan latihan di setiap kelas tapi juga mendapatkan latihan soal untuk masuk ke perguruan tinggi.
-                  </p>
-                  <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-info btn-block">Subscribe</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+      <div class="row">
+          <div class="col">
+            <img src="imagersc/stoodi_logo.png" style="height: 60px">
           </div>
-        <!--card package-->
-        <br>
-        <br>
-        <!--poster 2-->
-        <img src="{{ 'imagersc/berlangganan-2.png' }}" style="width: 100%">     
-        <!--poster 2-->
-        
-        
-        
-        {{-- <h1 style="text-align: center; margin-bottom: 60px;">Team Kami</h1>
-        <div class="row" align="center">
             <div class="col">
-                <img src="{{ 'imagersc/irfanda.jpeg' }}" style="width: 250px; border-radius: 100%"><br><br>
-                <h5>IRFANDA WIRA ARNAWAMA</h5>
+              <ul class="nav justify-content-end">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url('/') }}" style="color: white">Home</b></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url('/aboutus') }}" style="color: white">Tentang Kami</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url('/testimoni') }}" style="color: white">Testimoni</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/bayar') }}" style="color: white">Cara Bayar</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="btn btn-primary" href="{{ url('/login') }}" role="button" style="font-size: 20px; border-radius: 40px">Login</a>
+                  </li>
+              </ul>
             </div>
-            <div class="col">
-                <img src="{{ 'imagersc/kiki.jpeg' }}" style="width: 250px; border-radius: 100%"><br><br>
-                <h5>MUHAMMAD RIZKY JUNIANWAR</h5>
-            </div>
-            <div class="col">
-                <img src="{{ 'imagersc/naja.jpeg' }}" style="width: 250px; border-radius: 100%"><br><br>
-                <h5>NAYLA NAJA</h5>
-            </div>
-        </div><br><br>
-        <div class="row" align="center">
-            <div class="col" style="margin-left: 200px">
-                <img src="{{ 'imagersc/rizky.jpeg' }}" style="width: 250px; border-radius: 100%"><br><br>
-                <h5>RIZKY FADILAH</h5>
-            </div>
-            <div class="col" style="margin-right: 200px">
-                <img src="{{ 'imagersc/rheza.jpeg' }}" style="width: 250px; border-radius: 100%"><br><br>
-                <h5>RHEZA DEWANTARA</h5>
-            </div>
-        </div> --}}
-    </div>
+          </div>
+      </div>
 
-    <div class="fixed-bottom" style="background-color: #00D2FC">
-        <p style="text-align: center">©STOODI 2020</p>
-    </div>
+      <div class="container" style="align-content: center">
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
-    </script>
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col-sm-10">
+              <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <h1 class="display-4">Berlangganan</h1>
+                <p class="lead">stoodi menyediakan paket sesuai dengan kebutuhan kamu, seusai dengan apa yang ingin kamu dapatkan hingga sesuai dengan jurusan kamu. Pilihlah paket yang kamu mau dengan harga yang telah kami jamin sangat kompetitif.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <br><br>
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col-sm-10">
+              <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                  <div class="card mb-4 shadow-sm">
+                  <div class="card-header">
+                    <h4 class="my-0 fw-normal">Junior</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">Rp.800.000 <small class="text-muted">/ year</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Aktif hingga 30 Juni 2021 Akses ke semua mata pelajaran dan semua kurikulum</li>
+                      <li>Video Belajar</li>
+                      <li>Rangkuman Modul Bimbel</li>
+                      <li>Kuis & Latihan</li>
+                    </ul>
+                    <a type="button" class="w-100 btn btn-lg btn-primary" href="{{ '/register' }}">Langganan</a>
+                  </div>
+                </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-4 shadow-sm">
+                  <div class="card-header">
+                    <h4 class="my-0 fw-normal">Middle class</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">Rp.937.000 <small class="text-muted">/ year</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Aktif hingga 30 Juni 2021 Akses ke semua mata pelajaran dan semua kurikulum</li>
+                      <li>Video Belajar</li>
+                      <li>Rangkuman Modul Bimbel</li>
+                      <li>Kuis & Latihan</li>
+                    </ul>
+                    <a type="button" class="w-100 btn btn-lg btn-primary" href="{{ '/register' }}">Langganan</a>
+                  </div>
+                </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-4 shadow-sm">
+                  <div class="card-header">
+                    <h4 class="my-0 fw-normal">Senior</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">Rp.999.000 <small class="text-muted">/ year</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Aktif hingga 30 Juni 2021 Akses ke semua mata pelajaran dan semua kurikulum</li>
+                      <li>Video Belajar</li>
+                      <li>Rangkuman Modul Bimbel</li>
+                      <li>Kuis & Latihan</li>
+                    </ul>
+                    <a type="button" class="w-100 btn btn-lg btn-primary" href="{{ '/register' }}">Langganan</a>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {{-- <hr>
+      <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>© 2017-2020 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer> --}}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+
 </body>
+
 </html>

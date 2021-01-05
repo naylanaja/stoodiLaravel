@@ -25,7 +25,7 @@
                         <a class="nav-link" href="{{ url('/aboutus') }}" style="color: white">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/berlangganan') }}" style="color: white">Berlangganan</a>
+                        <a class="nav-link" href="{{ url('/testimoni') }}" style="color: white">Testimoni</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-primary" href="#" role="button" style="font-size: 20px; border-radius: 40px">Login</a>

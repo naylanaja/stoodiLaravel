@@ -9,10 +9,10 @@
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <title>Stoodi : @yield('title')</title>
+    <title>Home</title>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00D2FC; max-height: 72px;">
+<body style="background-size:100%; background-repeat: no-repeat">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00D2FC; max-height: 72px;">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/classroom') }}">
             <img src="{{ '/imagersc/stoodi_logo.png' }}" style="max-height: 45px;">
@@ -42,7 +42,7 @@
                             <?php
                                 if ( Auth::user()->gambar  == NULL ){
                                     ?>
-                                    <img src ="{{'/imagersc/profpict.png'}}" style="width: 40px; height: 40px;">
+                                    <img src ="{{'/imagersc/profpict.png'}}" style="width: 100px">
                                     <?php
                                 }else{
                                 ?>
@@ -67,46 +67,61 @@
         </div>
     </nav>
 
-    <div class="container" style="margin-top: 30px;">
-        <div class="row">
-            <div class="col-3">
-                <div class="card" style="background-color: white; border-radius: 10px;">
-                    <nav class="nav flex-column">
-                        <br>
-                        <p align="center">
-                        <?php
-                            if ( Auth::user()->gambar  == NULL ){
-                                ?>
-                                <img src ="{{'/imagersc/profpict.png'}}" style="width: 100px">
-                                <?php
-                            }else{
-                            ?>
-                                <img src="/img/{{ Auth::user()->gambar }}" style="width:100px;height:100px;border-radius:100%">
-                            <?php
-                            }
-                            ?>
-                        </p>
-                        <h5 align="center">{{ Auth::user()->name }}</h5>
-                        <p align="center">{{ Auth::user()->kelas . '-' . Auth::user()->peminatan }}</p>
-                        <br>
-        
-                        <h6 style="margin-left: 15px">Menu</h6>
-                        <a class="nav-link" href="{{ url('/profile') }}"><span class="material-icons" style="margin-right: 10px; vertical-align: middle">account_circle</span>Profile</a>
-                        <a class="nav-link" href="{{ url('/classroom') }}"><span class="material-icons" style="margin-right: 10px; vertical-align: middle">menu_book</span>All Courses</a>
-                        <a class="nav-link" href="{{ url('/announcement') }}"><span class="material-icons" style="margin-right: 10px; vertical-align: middle">campaign</span>Announcement</a>
-                    </nav>
-                </div><br>
-                @yield('info')
-            </div>
-            <div class="col-9">
-                @yield('body')
-            </div>
+        <div class="container mt-5" style="font-weight:bold;font-family:sans-serif">
+        <h5 style="text-align:center">Foto Profil </h5> 
+            <p align="center">   
+            <?php
+                if ( Auth::user()->gambar  == NULL ){
+                    ?>
+                    <img src ="{{'/imagersc/profpict.png'}}" style="width: 100px">
+                    <?php
+                }else{
+                 ?>
+                    <img src="/img/{{ Auth::user()->gambar }}" style="width:100px;height:100px;border-radius:100%">
+                <?php
+                }
+                ?>
+                
+                <br>
+                <br>
+                {{ Auth::user()->name }}
+                <br>
+                Status: Siswa
+            </p>
         </div>
-    </div>
 
+        <div class="container ">
+            
+            <div class="row"> 
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <p> {{ Auth::user()->email }} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Nama</label>
+                    <p> {{ Auth::user()->name }}</p>
+                </div>
+            </div>
+           
+            <a type="button" href="/student/editprofile/{{ Auth::user()->id }}" class="btn btn-primary">Edit</a>
+            
+        </div>
+
+
+
+ <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-      
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

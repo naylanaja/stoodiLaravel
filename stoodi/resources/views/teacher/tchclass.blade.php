@@ -1,4 +1,4 @@
-@extends('layout.class')
+@extends('layout.teacher')
 @section('title', 'classroom')
 
 @section('body')
@@ -32,7 +32,7 @@
                                 <h6>Kelas</h6>
                                 <p>{{$crs->kelas}} SMA</p>
                             </div>
-                            <a class="btn btn-outline-success btn-sm" type="button" href="/course/{{ $crs->id }}" style="margin-left: 5%; margin-right: 5%; width: 90%; border-radius: 8px">View Course</a>
+                            <a class="btn btn-outline-success btn-sm" type="button" href="/tchcourse/{{ $crs->id }}" style="margin-left: 5%; margin-right: 5%; width: 90%; border-radius: 8px">View Course</a>
                         </div>
                     </div>
                 </div>

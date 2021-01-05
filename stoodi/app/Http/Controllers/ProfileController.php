@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Assessment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Classroom;
-use App\Models\Course;
+use App\Models\User;
+use Auth;
 
-class ClassroomsController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +16,13 @@ class ClassroomsController extends Controller
      */
     public function index()
     {
-        $courses = Classroom::select('*')
-            ->where('kelas', '=', Auth::user()->kelas)
-            ->where('category', '=', Auth::user()->peminatan)
-            ->get();
-        return view ('student.classroom', ['courses' => $courses]);
+        //
+        $users = DB::table('users')->get();
+ 
+    	// mengirim data pegawai ke view index
+    	return view('student.profile',['users' => $users]);
+        
+        
     }
 
     /**
@@ -54,17 +54,11 @@ class ClassroomsController extends Controller
      */
     public function show($id)
     {
-        $classroom = DB::table('classrooms')->where('id',$id)->get();
-        $course = DB::table('courses')
-            ->where('id_classroom',$id)
-            ->where('visible', '=', '1')
-            ->get();
-        $assessment = DB::table('assessments')->where('id_course',$id)->get();
-        $quizes = DB::table('quizes')->where('id_course',$id)->get();
-        $attemp = DB::table('quizattempgrade')->where('id_user',Auth::user()->id)->get();
-        $collection = DB::table('assessmentcollection')->where('id_user',Auth::user()->id)->get();
-        return view('student.course',['course' => $course, 'classroom' => $classroom, 'assessment' => $assessment, 'quizes' => $quizes,
-        'attemp' => $attemp, 'collection' => $collection]);
+        //
+       
+        return view('/student/editprofile');
+        
+        
     }
 
     /**
@@ -76,6 +70,9 @@ class ClassroomsController extends Controller
     public function edit($id)
     {
         //
+        $users = DB::table('users')->where('id',$id)->get();
+	// passing data pegawai yang didapat ke view edit.blade.php
+	    return view('/student/editprofile', compact('users'));
     }
 
     /**
@@ -85,9 +82,26 @@ class ClassroomsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $users)
     {
         //
+    
+        $request->validate([
+            'gambar' => 'mimes:jpg,jpeg,png',
+        ]);
+        $filename = $request->gambar->getClientOriginalName();
+        $path = Auth::user()->id . $request->gambar->getClientOriginalName(); 
+        $request->gambar->move(public_path('img'), $path);
+        User::where('id', Auth::user()->id)
+                    ->update([
+                        'name'=>$request->name,
+                        'email'=>$request->email,
+                        'gambar'=>$path,
+                        
+                    ]);
+
+
+         return redirect('/profile')->with('status','Data Berhasil Diubah');
     }
 
     /**

@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Assessment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Classroom;
-use App\Models\Course;
 
-class ClassroomsController extends Controller
+class CoursesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +16,7 @@ class ClassroomsController extends Controller
      */
     public function index()
     {
-        $courses = Classroom::select('*')
-            ->where('kelas', '=', Auth::user()->kelas)
-            ->where('category', '=', Auth::user()->peminatan)
-            ->get();
-        return view ('student.classroom', ['courses' => $courses]);
+        //
     }
 
     /**
@@ -43,7 +37,11 @@ class ClassroomsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::insert('insert into classrooms (name, description, kelas, category) values 
+        (?, ?, ?, ?)', [$request->name, $request->desc, $request->kelas, $request->peminatan]);
+
+        $courses = Classroom::all();
+        return view ('admin.admcourse', ['courses' => $courses]);
     }
 
     /**
@@ -54,17 +52,7 @@ class ClassroomsController extends Controller
      */
     public function show($id)
     {
-        $classroom = DB::table('classrooms')->where('id',$id)->get();
-        $course = DB::table('courses')
-            ->where('id_classroom',$id)
-            ->where('visible', '=', '1')
-            ->get();
-        $assessment = DB::table('assessments')->where('id_course',$id)->get();
-        $quizes = DB::table('quizes')->where('id_course',$id)->get();
-        $attemp = DB::table('quizattempgrade')->where('id_user',Auth::user()->id)->get();
-        $collection = DB::table('assessmentcollection')->where('id_user',Auth::user()->id)->get();
-        return view('student.course',['course' => $course, 'classroom' => $classroom, 'assessment' => $assessment, 'quizes' => $quizes,
-        'attemp' => $attemp, 'collection' => $collection]);
+        //
     }
 
     /**
@@ -98,6 +86,8 @@ class ClassroomsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('classrooms')->where('id', $id)->delete();
+        
+        return redirect('/admcourse');
     }
 }

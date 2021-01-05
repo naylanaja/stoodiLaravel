@@ -16,8 +16,20 @@ class PagesController extends Controller
         return view('aboutus');
     }
     
+    public function testimoni()
+    {
+        return view('testimoni');
+    }
+
     public function berlangganan()
     {
         return view('berlangganan');
     }
+
+    public function langganan_auth()
+    {
+        return view('auth.langganan');
+    }
+
+    
 }
