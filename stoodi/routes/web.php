@@ -33,7 +33,12 @@ Route::get('/aboutus', [PagesController::class, 'aboutus'])->name('aboutus');
 Route::get('/testimoni',[PagesController::class, 'testimoni'])->name('testimoni');
 Route::get('/berlangganan',[PagesController::class, 'berlangganan'])->name('berlangganan');
 Route::get('/langganan',[PagesController::class, 'langganan_auth']);
+Route::get('/payment',[PagesController::class, 'payment']);
 Route::get('/announcement',[AnnounceController::class, 'index']);
+
+//todolist
+Route::post('/addtodo',[PagesController::class, 'addtodo']);
+Route::get('/tddone/{id}', [PagesController::class, 'tddone']);
 
 //classroom
 Route::get('/student/classroom', [ClassroomsController::class, 'index']);

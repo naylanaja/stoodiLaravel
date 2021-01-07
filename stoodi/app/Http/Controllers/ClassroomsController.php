@@ -22,7 +22,8 @@ class ClassroomsController extends Controller
             ->where('kelas', '=', Auth::user()->kelas)
             ->where('category', '=', Auth::user()->peminatan)
             ->get();
-        return view ('student.classroom', ['courses' => $courses]);
+        $todo = DB::table('todolist')->where('user_id',Auth::user()->id)->get();
+        return view ('student.classroom', ['courses' => $courses, 'todo' => $todo]);
     }
 
     /**

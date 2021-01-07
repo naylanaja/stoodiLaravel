@@ -15,7 +15,8 @@ class TeacherController extends Controller
         $courses = Classroom::select('*')
             ->where('teacher', '=', Auth::user()->name)
             ->get();
-        return view ('teacher.tchclass', ['courses' => $courses]);
+        $todo = DB::table('todolist')->where('user_id',Auth::user()->id)->get();
+        return view ('teacher.tchclass', ['courses' => $courses, 'todo' => $todo]);
     }
 
     public function course($id)

@@ -61,6 +61,32 @@
                         </br>
 
                         <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Kelas') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="kelas" type="number" class="form-control" name="kelas" required >
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="peminatan" class="col-md-4 col-form-label text-md-right">{{ __('Peminatan') }}</label>
+                            <div class="col-md-6">
+                                <div class="form-check" style="margin-top: 10px">
+                                    <input class="form-check-input" type="radio" name="peminatan"  value="IPA" id="peminatan1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        IPA
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px">
+                                    <input class="form-check-input" type="radio" name="peminatan" value="IPA" id="peminatan2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        IPS
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

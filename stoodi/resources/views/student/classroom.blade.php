@@ -50,18 +50,64 @@
                     <div class="col">
                         <h4>List</h4>
                     </div>
-                    <div class="col">
+                    <div class="col col-lg-2">
                         <div class="d-flex" style="margin-left: auto">
-                            <button type="button" class="btn btn-outline-dark" style="margin-left: auto">Add Task</button>
+                            <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#todo">
+                                + Add Todo
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card-body" style="height: 400px;">
+                @if (count($todo) == 0)
                 <p align="center">
                     <img src="imagersc/notask.png" style="width: 100px; margin-top: 75px">
                 </p>
                 <p align="center">Nothing to do now</p>
+                @else
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 10%">no</th>
+                            <th scope="col" style="width: 80%">To Do</th>
+                            <th scope="col" style="width: 10%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($todo as $td)
+                        <tr>
+                            <th scope="row">{{$loop->iteration}}</th>
+                            <td>{{$td->todo}}</td>
+                            <td>
+                                <a class="badge rounded-pill bg-success" onclick="return confirm('Tugas telah diselesaikan?')" href="/tddone/{{$td->id}}">done</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="todo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">What you want to do?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/addtodo" method="POST">
+                        @csrf
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="todo" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

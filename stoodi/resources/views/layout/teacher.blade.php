@@ -70,10 +70,9 @@
                         <br>
         
                         <h6 style="margin-left: 15px">Menu</h6>
-                        <a class="nav-link" href="{{ url('/student/profile') }}"><span class="material-icons" style="margin-right: 10px; vertical-align: middle">account_circle</span>Profile</a>
+                        <a class="nav-link" href="{{ url('/profile') }}"><span class="material-icons" style="margin-right: 10px; vertical-align: middle">account_circle</span>Profile</a>
                         <a class="nav-link" href="{{ url('/classroom') }}"><span class="material-icons" style="margin-right: 10px; vertical-align: middle">menu_book</span>All Courses</a>
                         <a class="nav-link" href="{{ url('/tchannounce') }}"><span class="material-icons" style="margin-right: 10px; vertical-align: middle">campaign</span>Amnouncement</a>
-                        <a class="nav-link" href="#"><span class="material-icons" style="margin-right: 10px; vertical-align: middle">tune</span>Preferences</a><br>
                     </nav>
                 </div><br>
                 @yield('info')

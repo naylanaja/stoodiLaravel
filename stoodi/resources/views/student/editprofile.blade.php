@@ -41,7 +41,7 @@
                             <?php
                                 if ( Auth::user()->gambar  == NULL ){
                                     ?>
-                                    <img src ="{{'/imagersc/profpict.png'}}" style="width: 100px">
+                                    <img src ="{{'/imagersc/profpict.png'}}" style="width: 40px; height: 40px;">
                                     <?php
                                 }else{
                                 ?>

@@ -50,13 +50,13 @@
             <div>
                 <label>Peminatan</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="peminatan" id="peminatan1" checked>
+                    <input class="form-check-input" type="radio" name="peminatan" value="IPA" id="peminatan1">
                     <label class="form-check-label" for="flexRadioDefault1">
                         IPA
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="peminatan" id="peminatan2">
+                    <input class="form-check-input" type="radio" name="peminatan" value="IPS" id="peminatan2">
                     <label class="form-check-label" for="flexRadioDefault2">
                         IPS
                     </label>
