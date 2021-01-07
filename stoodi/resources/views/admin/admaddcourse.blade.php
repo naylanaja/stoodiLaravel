@@ -19,6 +19,10 @@
                 <label for="class" class="form-label">Class</label>
                 <input type="number" class="form-control" id="class" name="kelas" required>
             </div>
+            <div class="mb-3">
+                <label for="class" class="form-label">Teacher</label>
+                <input type="text" class="form-control" id="class" name="teacher" required>
+            </div>
             <div>
                 <label>Majors</label>
                 <div class="form-check">

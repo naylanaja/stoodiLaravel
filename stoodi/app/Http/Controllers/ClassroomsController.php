@@ -62,8 +62,12 @@ class ClassroomsController extends Controller
             ->get();
         $assessment = DB::table('assessments')->where('id_course',$id)->get();
         $quizes = DB::table('quizes')->where('id_course',$id)->get();
-        $attemp = DB::table('quizattempgrade')->where('id_user',Auth::user()->id)->get();
-        $collection = DB::table('assessmentcollection')->where('id_user',Auth::user()->id)->get();
+        $attemp = DB::table('quizattempgrade')
+            ->where('id_user',Auth::user()->id)
+            ->get();
+        $collection = DB::table('assessmentcollection')
+            ->where('id_user',Auth::user()->id)
+            ->get();
         return view('student.course',['course' => $course, 'classroom' => $classroom, 'assessment' => $assessment, 'quizes' => $quizes,
         'attemp' => $attemp, 'collection' => $collection]);
     }

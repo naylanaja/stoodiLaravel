@@ -51,7 +51,7 @@ class AnnounceController extends Controller
             'pengumuman' => $request->pengumuman,
 
         ]);
-        return redirect('admin.admaddannounce');
+        return redirect('admaddannounce');
         
         
         

@@ -37,8 +37,8 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
-        DB::insert('insert into classrooms (name, description, kelas, category) values 
-        (?, ?, ?, ?)', [$request->name, $request->desc, $request->kelas, $request->peminatan]);
+        DB::insert('insert into classrooms (name, description, kelas, category, teacher) values 
+        (?, ?, ?, ?, ?)', [$request->name, $request->desc, $request->kelas, $request->peminatan, $request->teacher]);
 
         $courses = Classroom::all();
         return view ('admin.admcourse', ['courses' => $courses]);

@@ -94,7 +94,6 @@
                             @empty
                                 @if ($asmt->id_materi == $crs->id)
                                     @php
-                                        $a += 1;
                                         $unc = false;
                                     @endphp
                                     <div class="accordion-body">
@@ -141,12 +140,13 @@
                 </h2>
                 <div id="flush-collapseThree{{$crs->id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingThree{{$crs->id}}" data-bs-parent="#{{$crs->id}}acordion">
                 @foreach ($quizes as $quiz)
-                    @forelse ($attemp as $atmp)
-                        @if ($quiz->id_materi == $crs->id)
-                            @php
-                                $q += 1;
-                                $unc = true;
-                            @endphp
+                    @if ($quiz->id_materi == $crs->id)
+                        @php
+                            $q += 1;
+                            $unc = true;
+                        @endphp
+
+                        @forelse ($attemp as $atmp)
                             @if ($quiz->id == $atmp->id_quiz)
                             <div class="accordion-body">
                                 <div class="card">
@@ -166,7 +166,12 @@
                                     </div>
                                 </div>
                             </div>
-                            @else
+                            @endif
+                        @empty
+                            @if ($quiz->id_materi == $crs->id)
+                            @php
+                                $unc = false;
+                            @endphp
                             <div class="accordion-body">
                                 <div class="card">
                                     <div class="card-body" style="vertical-align: middle">
@@ -182,11 +187,9 @@
                                 </div>
                             </div>
                             @endif
-                        @endif
-                    @empty
-                        @if ($quiz->id_materi == $crs->id)
+                        @endforelse
+                        @if ($unc == true)
                             @php
-                                $q += 1;
                                 $unc = false;
                             @endphp
                             <div class="accordion-body">
@@ -204,23 +207,7 @@
                                 </div>
                             </div>
                         @endif 
-                    @endforelse
-                    @if ($unc == true)
-                        <div class="accordion-body">
-                            <div class="card">
-                                <div class="card-body" style="vertical-align: middle">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <a href="/quiz/{{ $quiz->id }}"><span class="material-icons" style="margin-right: 10px; vertical-align: middle;">contact_support</span>{{$quiz->name}}</a>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <span class="badge rounded-pill bg-secondary">Uncompleted</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif 
+                    @endif
                 @endforeach
                 </div>
             </div>

@@ -43,17 +43,15 @@ class QuizesController extends Controller
                 $true += 1;
             }
             DB::insert('insert into quizattemps (id_user, id_quiz, id_question, answer) values 
-            (?, ?, ?, ?)', [$request->userid, $request->quizid, $request->id_soal[$i], $request->ans[$i]]);
+            (?, ?, ?, ?)', [$request->userid, $request->quizid, $request->id_soal[$i], $request->ques[$i]]);
         }
         $nilai = number_format($true/$l * 100);
         DB::insert('insert into quizattempgrade (id_user, id_quiz, grade) values 
         (?, ?, ?)', [$request->userid, $request->quizid, $nilai]);
 
-        $answer = DB::table('quizattemps')->where('id_quiz', $request->quizid and 'id_user', Auth::user()->id)->get();
-        $grade = DB::table('quizattempgrade')->where('id_quiz', $request->quizid and 'id_user', Auth::user()->id)->get();
-        $quiz = DB::table('quizes')->where('id', $request->quizid and 'id_user', Auth::user()->id)->get();
-        $questions = DB::table('questions')->where('id_quiz', $request->quizid and 'id_user', Auth::user()->id)->get();
-        return view('student.review',['grade' => $grade, 'answer' => $answer, 'quiz' => $quiz, 'questions' => $questions]);
+        return redirect()->action(
+            [QuizesController::class, 'review'], ['id' => $request->quizid]
+        );
     }
 
     /**
@@ -64,10 +62,20 @@ class QuizesController extends Controller
      */
     public function review($id)
     {
-        $answer = DB::table('quizattemps')->where('id_quiz', $id and 'id_user', Auth::user()->id)->get();
-        $grade = DB::table('quizattempgrade')->where('id_quiz', $id and 'id_user', Auth::user()->id)->get();
-        $quiz = DB::table('quizes')->where('id', $id and 'id_user', Auth::user()->id)->get();
-        $questions = DB::table('questions')->where('id_quiz', $id and 'id_user', Auth::user()->id)->get();
+        $answer = DB::table('quizattemps')
+            ->where('id_quiz', $id)
+            ->where('id_user', Auth::user()->id)
+            ->get();
+        $grade = DB::table('quizattempgrade')
+            ->where('id_quiz', $id)
+            ->where('id_user', Auth::user()->id)
+            ->get();
+        $quiz = DB::table('quizes')
+            ->where('id', $id)
+            ->get();
+        $questions = DB::table('questions')
+            ->where('id_quiz', $id)
+            ->get();
         return view('student.review',['grade' => $grade, 'answer' => $answer, 'quiz' => $quiz, 'questions' => $questions]);
     }
 
